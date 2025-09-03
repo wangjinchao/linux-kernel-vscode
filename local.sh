@@ -11,6 +11,8 @@
 
 ## Generate objects in a subdirectory
 # MAKE="$MAKE O=.vscode/build-$TARGET_ARCH/"
+MAKE="make -j`nproc` CC='ccache gcc'"
+
 
 ## Enable some random kernel CONFIG by default as part of the .config generation
 # if [ $COMMAND = "defconfig" ]; then
@@ -23,7 +25,7 @@
 # fi
 
 ## Make the build verbose
-# SILENT_BUILD_FLAG=""
+SILENT_BUILD_FLAG=""
 
 ## Disable the build spinner
 # SPINNER=0
