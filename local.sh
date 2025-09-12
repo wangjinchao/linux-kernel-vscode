@@ -25,7 +25,7 @@ MAKE="date;time make -j`nproc` LLVM=1 LLVM_IAS=1 CC='ccache clang'"
 # fi
 
 ## Make the build verbose
-# SILENT_BUILD_FLAG=""
+SILENT_BUILD_FLAG=""
 
 ## Disable the build spinner
 # SPINNER=0
