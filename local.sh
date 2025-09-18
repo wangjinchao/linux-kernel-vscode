@@ -39,7 +39,7 @@ SILENT_BUILD_FLAG=""
 ## Add some args to the kernel cmdline when using the "start" task
 ## E.g.: Boot straight into a syzbot reproducer
 # KERNEL_CMDLINE_EXTRA=init=/root/syzbot-repro
-KERNEL_CMDLINE_EXTRA="audit=0"
+KERNEL_CMDLINE_EXTRA="audit=0 hardlockup_detector=perf"
 
 ## Only fuzz the /dev/ptmx ioctls
 # SYZ_MANAGER_CFG_EXTRA='"enable_syscalls": [ "openat$ptmx", "ioctl$*" ],'
