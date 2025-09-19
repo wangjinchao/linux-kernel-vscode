@@ -11,8 +11,8 @@
 
 ## Generate objects in a subdirectory
 # MAKE="$MAKE O=.vscode/build-$TARGET_ARCH/"
-MAKE="date;time make -j`nproc` LLVM=1 LLVM_IAS=1 CC='ccache clang'"
-# MAKE="date;time make -j`nproc` CC='ccache gcc'"
+#MAKE="date;time make -j`nproc` LLVM=1 LLVM_IAS=1 CC='ccache clang'"
+MAKE="date;time make -j`nproc` CC='ccache gcc'"
 
 ## Enable some random kernel CONFIG by default as part of the .config generation
 # if [ $COMMAND = "defconfig" ]; then
