@@ -48,26 +48,26 @@ KERNEL_CMDLINE_EXTRA="audit=0"
 # SYZ_MANAGER_CFG_EXTRA='"sandbox": "setuid",'
 
 # Create 4 SATA disk images (10GB each) if they don't exist
-DISK_DIR="/home/jinchao/.linux-kernel-vscode"
-for i in {1..4}; do
-  if [ ! -f "${DISK_DIR}/sata_disk${i}.img" ]; then
-    qemu-img create -f qcow2 "${DISK_DIR}/sata_disk${i}.img" 10G
-  fi
-done
+# DISK_DIR="/home/jinchao/.linux-kernel-vscode"
+# for i in {1..4}; do
+#   if [ ! -f "${DISK_DIR}/sata_disk${i}.img" ]; then
+#     qemu-img create -f qcow2 "${DISK_DIR}/sata_disk${i}.img" 10G
+#   fi
+# done
 
-# Create 2 NVMe disk images (4GB each) if they don't exist
-for i in {1..2}; do
-  if [ ! -f "${DISK_DIR}/nvme_disk${i}.img" ]; then
-    qemu-img create -f qcow2 "${DISK_DIR}/nvme_disk${i}.img" 4G
-  fi
-done
+# # Create 2 NVMe disk images (4GB each) if they don't exist
+# for i in {1..2}; do
+#   if [ ! -f "${DISK_DIR}/nvme_disk${i}.img" ]; then
+#     qemu-img create -f qcow2 "${DISK_DIR}/nvme_disk${i}.img" 4G
+#   fi
+# done
 
-# Configure VM_START_ARGS to include the additional disks
-VM_START_ARGS="-drive file=${DISK_DIR}/sata_disk1.img,if=ide \
--drive file=${DISK_DIR}/sata_disk2.img,if=ide \
--drive file=${DISK_DIR}/sata_disk3.img,if=ide \
--drive file=${DISK_DIR}/sata_disk4.img,if=ide \
--drive file=${DISK_DIR}/nvme_disk1.img,if=none,id=nvme1 \
--device nvme,drive=nvme1,serial=nvme1 \
--drive file=${DISK_DIR}/nvme_disk2.img,if=none,id=nvme2 \
--device nvme,drive=nvme2,serial=nvme2"
+# # Configure VM_START_ARGS to include the additional disks
+# VM_START_ARGS="-drive file=${DISK_DIR}/sata_disk1.img,if=ide \
+# -drive file=${DISK_DIR}/sata_disk2.img,if=ide \
+# -drive file=${DISK_DIR}/sata_disk3.img,if=ide \
+# -drive file=${DISK_DIR}/sata_disk4.img,if=ide \
+# -drive file=${DISK_DIR}/nvme_disk1.img,if=none,id=nvme1 \
+# -device nvme,drive=nvme1,serial=nvme1 \
+# -drive file=${DISK_DIR}/nvme_disk2.img,if=none,id=nvme2 \
+# -device nvme,drive=nvme2,serial=nvme2"
